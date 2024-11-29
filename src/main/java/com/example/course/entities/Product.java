@@ -14,8 +14,8 @@ import java.util.Set;
 @Setter
 @EqualsAndHashCode
 @Entity
-@Table(name = "tb_category")
-public class Category implements Serializable {
+@Table(name = "tb_products")
+public class Product implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -23,16 +23,22 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String description;
+    private Double price;
+    private String imgUrl;
 
     @Transient
     @Getter
-    private Set<Product> products = new HashSet<>();
+    private Set<Category> categories = new HashSet<>();
 
-    public Category() {
+    public Product() {
     }
 
-    public Category(Long id, String name) {
-        this.name = name;
+    public Product(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
     }
 }
