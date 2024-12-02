@@ -25,4 +25,8 @@ public class UserService {
     public User insrt(User user){
         return userRepository.save(user);
     }
+
+    public void deleteById(Long id){
+        userRepository.deleteById(id);
+    }
 }
